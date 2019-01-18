@@ -37,7 +37,7 @@ tape('through + end', function (t) {
       this.queue(data * 10)
     }, function () {
       this.queue(40)
-      this.queue(null)
+      this.queue(Symbol.for( 'pipestreams:end' ))
     }),
     pull.collect(function (err, ary) {
       if(err) throw err
@@ -54,7 +54,7 @@ tape('through + end, falsey values', function (t) {
       this.queue(data * 10)
     }, function () {
       this.queue(40)
-      this.queue(null)
+      this.queue(Symbol.for( 'pipestreams:end' ))
     }),
     pull.collect(function (err, ary) {
       if(err) throw err
