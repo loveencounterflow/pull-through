@@ -1,4 +1,5 @@
 var looper = require('looper')
+const end_sym = Symbol.for( 'pipestreams:end' )
 
 module.exports = function (writer, ender) {
   return function (read) {
@@ -52,7 +53,7 @@ module.exports = function (writer, ender) {
               error = end; return next()
             }
             if(ended = ended || end)  ender.call(emitter)
-            else if(data !== null) {
+            else if(data !== end_sym) {
               writer.call(emitter, data)
               if(error || ended)
                 return read(error || ended, function () {
