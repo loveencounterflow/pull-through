@@ -1,6 +1,10 @@
 # pull-through
 
-[through](https://github.com/dominictarr/through) ported to 
+`pull-through-with-end-symbol` is identical to [`pull-stream/pull-through`](https://github.com/pull-stream/pull-through), except
+that
+
+
+[through](https://github.com/dominictarr/through) ported to
 [pull-stream](https://github.com/dominictarr/pull-stream) style.
 
 ## Example
@@ -13,7 +17,7 @@ var through = require('pull-through')
 var ts = through(function (data) {
   this.queue(data)
 }, function (end) {
-  this.queue(null)
+  this.queue(Symbol.for( 'pipestreams:end' ))
 })
 ```
 
