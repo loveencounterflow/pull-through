@@ -1,6 +1,6 @@
 {
-  "name": "pull-through",
-  "description": "through ported to pull-stream style",
+  "name": "pull-through-with-end-symbol",
+  "description": "like pull-through, but using a symbol so null can be used for data",
   "version": "1.0.18",
   "homepage": "https://github.com/dominictarr/pull-through",
   "repository": {
