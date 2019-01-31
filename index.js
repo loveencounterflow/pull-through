@@ -52,12 +52,14 @@ module.exports = function (writer, ender) {
         else {
           // ...............................................................................................
           read( ended, function ( end, data ) {
-             //null has no special meaning for pull-stream
+            // console.log( 'pull-through 88744-1 ' + require('util').inspect(data));
+             // null has no special meaning for pull-stream
+             // but now `Symbol.for( 'pipestreams:end' )` has
             if( end && end !== true ) {
               error = end;
               return next(); };
             // .............................................................................................
-            if( ended = ended || end ) {
+            if( ended = ended || data === end_sym || end ) {
               ender.call( emitter ); }
             else if( data !== end_sym ) {
               writer.call( emitter, data );

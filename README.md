@@ -1,7 +1,9 @@
 # pull-through
 
-`pull-through-with-end-symbol` is identical to [`pull-stream/pull-through`](https://github.com/pull-stream/pull-through), except
-that
+`pull-through-with-end-symbol` is identical to
+[`pull-stream/pull-through`](https://github.com/pull-stream/pull-through),
+except that `null` has no special meaning and does not end (abort) the stream
+anymore, but `Symbol.for( 'pipestreams:end' )` does.
 
 
 [through](https://github.com/dominictarr/through) ported to
