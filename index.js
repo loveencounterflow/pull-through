@@ -1,7 +1,7 @@
 var looper = require('looper')
-const end_sym = Symbol.for( 'pipestreams:end' )
+const end_sym = Symbol( 'end' )
 
-module.exports = function (writer, ender) {
+const pull_through = function (writer, ender) {
   return function (read) {
     var queue = [], ended, error
 
@@ -77,4 +77,8 @@ module.exports = function (writer, ender) {
     }
   }
 }
+
+pull_through.symbols = { end: end_sym, };
+module.exports = pull_through;
+
 
