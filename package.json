@@ -1,7 +1,7 @@
 {
   "name": "pull-through-with-end-symbol",
   "description": "like pull-through, but using a symbol so null can be used for data",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "homepage": "https://github.com/dominictarr/pull-through",
   "repository": {
     "type": "git",
